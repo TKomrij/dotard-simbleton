@@ -111,13 +111,38 @@ const businesses = [
   }
 ];
 
+
+// return all businesses
 export const useBusinesses = () => {
   return businesses.slice()
 }
 
+// return only NY businesses
 export const nycBusinesses = businesses.filter(businessObject => {
   if (businessObject.addressStateCode === "NY") {
       return true
   }
   return false
 })
+
+// return only manufacturing businesses
+export const manufacturingBusinesses = businesses.filter(businessObject => {
+  if (businessObject.companyIndustry === "Manufacturing") {
+      return true
+  }
+  return false
+})
+
+// return agent details
+export const purchasingAgents = businesses.map(businessObject => {
+  return {
+    fullName: businessObject.purchasingAgent.nameFirst + " " + businessObject.purchasingAgent.nameLast,
+    company: businessObject.companyName,
+    phoneNumber: businessObject.phoneWork
+  }
+})
+
+// .find() to find specific customers through a search
+export const findCustomer = () => {
+  return businesses.find(business => business.companyName === business.companyName)
+}
