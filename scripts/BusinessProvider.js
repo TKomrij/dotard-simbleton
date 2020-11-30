@@ -142,7 +142,6 @@ export const purchasingAgents = businesses.map(businessObject => {
   }
 })
 
-// .find() to find specific customers through a search
-export const findCustomer = () => {
-  return businesses.find(business => business.companyName === business.companyName)
-}
+// export const findCandyBelowPrice = (priceCriteria) => {
+//   return candies.find(candy => candy.price < priceCriteria)
+// }
