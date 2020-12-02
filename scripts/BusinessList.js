@@ -1,4 +1,4 @@
-import { nycBusinesses, useBusinesses, manufacturingBusinesses, purchasingAgents} from "./BusinessProvider.js"
+import { nycBusinesses, useBusinesses, manufacturingBusinesses, purchasingAgents,  } from "./BusinessProvider.js"
 import { Business, nycBusiness, manufacturingBusiness, purchasingAgent} from "./Business.js"
 
 
@@ -48,45 +48,50 @@ export const purchasingAgentList = () => {
 }
 
 
-// // Place an article element in your HTML with the class below
-// const companySearchResultArticle = document.querySelector(".foundCompanies")
+export const findTheBusiness = () => {
+// Place an article element in your HTML with the class below
+const companySearchResultArticle = document.querySelector(".foundCompanies")
 
-// document
-//     .querySelector("#companySearch")
-//     .addEventListener("keypress", keyPressEvent => {
-//         if (keyPressEvent.charCode === 13) {
-//             const businessArray = useBusinesses()
-//             businessArray.forEach(
-//                 (business) => {
-//                     business.companyName.includes(keyPressEvent.target.value)
-//                 }
-//             )
-//             }
+document
+    .querySelector("#companySearch")
+    .addEventListener("keypress", keyPressEvent => {
+        if (keyPressEvent.charCode === 13) {
+            const businessArray = useBusinesses()
+            businessArray.forEach(
+                (business) => {
+                    business.companyName.includes(keyPressEvent.target.value)
+                }
+            )
+            }
             
-//                 // When user presses enter, find the matching business.
-//                 // You can use the `.includes()` method strings to
-//                 // see if a smaller string is part of a larger string.
+                // When user presses enter, find the matching business.
+                // You can use the `.includes()` method strings to
+                // see if a smaller string is part of a larger string.
 
-//                 // Example:
+                // Example:
                     
         
 
-//             const foundBusiness = // implement .find() method here
+            const foundBusiness = (businessCriteria) => {
+                return businesses.find(business => business.companyName === businessCriteria)
+            }
+           
 
-//             companySearchResultArticle.innerHTML = `
-//                 <h2>
-//                 ${foundBusiness.companyName}
-//                 </h2>
-//                 <section>
-//                 ${foundBusiness.addressFullStreet}
+            companySearchResultArticle.innerHTML = `
+                <h2>
+                ${foundBusiness.companyName}
+                </h2>
+                <section>
+                ${foundBusiness.addressFullStreet}
 
-//                 </section>
-//                 <section>
-//                 ${foundBusiness.addressCity},
-//                 ${foundBusiness.addressStateCode}
-//                 ${foundBusiness.addressZipCode}
-//                 </section>
-//             `;
-//         }
-//     );
-
+                </section>
+                <section>
+                ${foundBusiness.addressCity},
+                ${foundBusiness.addressStateCode}
+                ${foundBusiness.addressZipCode}
+                </section>
+            `;
+        
+        }
+    );
+    }

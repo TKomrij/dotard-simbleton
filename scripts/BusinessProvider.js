@@ -141,7 +141,3 @@ export const purchasingAgents = businesses.map(businessObject => {
     phoneNumber: businessObject.phoneWork
   }
 })
-
-// export const findCandyBelowPrice = (priceCriteria) => {
-//   return candies.find(candy => candy.price < priceCriteria)
-// }
