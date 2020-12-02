@@ -141,3 +141,7 @@ export const purchasingAgents = businesses.map(businessObject => {
     phoneNumber: businessObject.phoneWork
   }
 })
+
+
+export const findBusiness = (businessCriteria) => {
+  return businesses.find(business => business.companyName === businessCriteria)}

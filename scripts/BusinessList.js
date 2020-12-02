@@ -1,4 +1,4 @@
-import { nycBusinesses, useBusinesses, manufacturingBusinesses, purchasingAgents,  } from "./BusinessProvider.js"
+import { nycBusinesses, useBusinesses, manufacturingBusinesses, purchasingAgents, findBusiness } from "./BusinessProvider.js"
 import { Business, nycBusiness, manufacturingBusiness, purchasingAgent} from "./Business.js"
 
 
@@ -55,14 +55,17 @@ const companySearchResultArticle = document.querySelector(".foundCompanies")
 document
     .querySelector("#companySearch")
     .addEventListener("keypress", keyPressEvent => {
-        if (keyPressEvent.charCode === 13) {
-            const businessArray = useBusinesses()
-            businessArray.forEach(
-                (business) => {
-                    business.companyName.includes(keyPressEvent.target.value)
+        let businesses = []
+        useBusinesses().forEach(
+            (business) => {
+                if (keyPressEvent.charCode === 13) {
+                    businesses.push(business.companyName.includes(keyPressEvent.target.value)) 
                 }
-            )
+
             }
+        )
+        console.log(businesses)
+       
             
                 // When user presses enter, find the matching business.
                 // You can use the `.includes()` method strings to
@@ -72,9 +75,8 @@ document
                     
         
 
-            const foundBusiness = (businessCriteria) => {
-                return businesses.find(business => business.companyName === businessCriteria)
-            }
+            const foundBusiness = findBusiness()
+        
            
 
             companySearchResultArticle.innerHTML = `
@@ -95,3 +97,4 @@ document
         }
     );
     }
+    
